@@ -42,6 +42,7 @@ h2.section-example--title {
 .section-example {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
 }
 
