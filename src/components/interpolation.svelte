@@ -30,9 +30,9 @@
         </span>
       &lt;/p&gt;
 
-     &lt;img src={svelteImgPath} alt={altText}/&gt;
+     &lt;img src=&#123;svelteImgPath&#125; alt=&#123;altText&#125;/&gt;
 
-     &lt;img alt={altText}/&gt;
+     &lt;img alt=&#123;altText&#125;/&gt;
     </pre>
   </div>
 </div>
