@@ -16,26 +16,30 @@
     count += 1;
   }
 
-  const example = `
-  let count = 0;
+  const exampleStr = `
+  <script>
+    let count = 0;
 
-  $: if (count >= 10) {
-    alert('count is dangerously high!');
-    count = 9;
-  }
+    $: if (count >= 10) {
+      alert('count is dangerously high!');
+      count = 9;
+    }
 
-  $: {
-    console.log('the count is ' + count);
-  }
+    $: {
+      console.log('the count is ' + count);
+    }
 
-  function increaseCounter() {
-    count += 1;
-  }
+    function increaseCounter() {
+      count += 1;
+    }
+  </\script>
 
   <button on:click={increaseCounter}>
     Clicked { count } { count === 1 ? 'time' : 'times' }
   </button>`;
 
+
+  const exampleSnippet = convertStrToPlainText(exampleStr);
 </script>
 
 <h2 class="section-example--title">Reactivity</h2>
@@ -48,8 +52,8 @@
   </div>
 
   <div class="section-example__code">
-      <pre lang="javascript">
-        { @html convertStrToPlainText(example) }
+      <pre>
+        { @html exampleSnippet }
     </pre>
   </div>
 </div>

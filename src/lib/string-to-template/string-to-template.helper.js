@@ -1,38 +1,30 @@
-import { CHAR, EXCESS_CHAR } from "./string-to-template.consatnts.js";
+import { CHAR } from "./string-to-template.consatnts.js";
 
 export const convertStrToPlainText = (str) => {
-  let preparedStr = removeExcessCharacters(str);
-  let _str = "";
+  let lines = str.split("\n");
 
-  for (const c of preparedStr) {
-    _str += replaceCharacter(c);
+  if (CHAR.EMPTY.reg.test(lines[0])) {
+    lines.shift();
   }
 
-  return _str;
-};
+  let _lines = [];
 
-const replaceCharacter = (char) => {
-  if (char in CHAR) {
-    return CHAR[char];
+  for (const line of lines) {
+    const l = replaceCharacters(line);
+    _lines.push(l);
   }
 
-  return char;
+  return _lines.join("\n");
 };
 
-const appendNewLine = (l) => l + "\n";
+const replaceCharacters = (str) => {
+  for (const charName in CHAR) {
+    const { reg, replaceWith } = CHAR[charName];
 
-const removeExcessCharacters = (str) => {
-  const lines = str.split("\n");
-  const parsedLines = [];
-
-  for (const l of lines) {
-    if (EXCESS_CHAR.SPACES_LINE_BEGINNING.reg.test(l)) {
-      parsedLines.push(appendNewLine(l.replace(EXCESS_CHAR.SPACES_LINE_BEGINNING.reg, EXCESS_CHAR.SPACES_LINE_BEGINNING.value)));
-      continue;
+    if (reg.test(str)) {
+      str = str.replace(reg, replaceWith);
     }
-
-    parsedLines.push(appendNewLine(l));
   }
 
-  return parsedLines.join("");
+  return str;
 };

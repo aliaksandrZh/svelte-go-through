@@ -1,9 +1,26 @@
 <script>
+  import { convertStrToPlainText } from '../lib/string-to-template/string-to-template.helper.js';
+
   let count = 0;
 
   function increaseCounter() {
     count += 1;
   }
+
+  const exampleStr =`
+  <script>
+    let count = 0;
+
+    function increaseCounter() {
+      count += 1;
+    }
+  </\script>
+
+  <button on:click={increaseCounter}>
+    Clicked { count } { count === 1 ? 'time' : 'times' }
+  </button>`;
+
+  const exampleSnippet = convertStrToPlainText(exampleStr);
 </script>
 
 <h2 class="section-example--title">Event Binding</h2>
@@ -17,17 +34,7 @@
 
   <div class="section-example__code">
       <pre>
-       &lt;script&gt;
-        <span class="indent">let count = 0;</span>
-
-        <span class="indent">function increaseCounter() &#123;</span>
-        <span class="indent"><span class="indent"> count += 1;</span></span>
-        <span class="indent">&#125;</span>
-      &lt;/script&gt;
-
-      &lt;button on:click=&#123;increaseCounter&#125;&gt;
-        <span class="indent">Clicked &#123; count &#125; &#123; count === 1 ? 'time' : 'times' &#125;</span>
-      &lt;/button&gt;
+      { @html exampleSnippet }
     </pre>
   </div>
 </div>

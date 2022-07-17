@@ -1,24 +1,40 @@
 const indentSize = 10;
-const getIndent = (size = 1) => `<span style='padding-left: ${size * indentSize}px;'></span>`;
+const getIndent = (size = 1) => `<span style="padding-left: ${ size * indentSize }px;"></span>`;
 
+// TODO: remove dependency from order
 const chars = {
-  " ": getIndent(1),
-  "\t": getIndent(1),
-  "\n": "\n",
-  ">": "&gt;",
-  "<": "&lt;",
-  "{": "&#123;",
-  "}": "&#125;",
-};
-
-const excessChars = {
-  SPACES_LINE_BEGINNING: {
+  "CHAR_>": {
+    reg: />/gi,
+    replaceWith: "&gt;",
+  },
+  "CHAR_<": {
+    reg: /</gi,
+    replaceWith: "&lt;",
+  },
+  "CHAR_{": {
+    reg: /\{/gi,
+    replaceWith: "&#123;",
+  },
+  "CHAR_}": {
+    reg: /}/gi,
+    replaceWith: "&#125;",
+  },
+  "DOUBLE_SPACES_START_LINE": {
     reg: /^\s{2}/gi,
-    value: ''
-  }
+    replaceWith: "",
+  },
+  "DOUBLE_SPACES": {
+    reg: /  /gi,
+    replaceWith: getIndent(2),
+  },
+  "TAB": {
+    reg: /\t/gi,
+    replaceWith: getIndent(2),
+  },
+  "EMPTY": {
+    reg: /^$/gi,
+    replaceWith: "",
+  },
 };
 
 export const CHAR = Object.freeze(chars);
-export const EXCESS_CHAR = Object.freeze(excessChars);
-
-
