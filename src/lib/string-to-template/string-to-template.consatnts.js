@@ -4,7 +4,7 @@ const getIndent = (size = 1) => `<span style='padding-left: ${size * indentSize}
 const chars = {
   " ": getIndent(1),
   "\t": getIndent(1),
-  "\n": "</br>",
+  "\n": "\n",
   ">": "&gt;",
   "<": "&lt;",
   "{": "&#123;",
