@@ -1,16 +1,7 @@
 <script>
-  import { convertStrToPlainText } from '../lib/string-to-template/string-to-template.helper.js';
+  import { EXAMPLE_SNIPPET } from "../constants/examples.js";
 
-  const exampleStr = `
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias aspernatur cumque deleniti distinctio dolor esse ipsum libero minima neque quae qui, quidem quod rem sit tenetur totam vero voluptatem.</p>
-
-  <style>
-    p {
-      color: red;
-    }
-  </\style>`;
-
-  const exampleSnippet = convertStrToPlainText(exampleStr);
+  const exampleSnippet = EXAMPLE_SNIPPET.STYLING;
 </script>
 
 <h2 class="section-example--title">Styling</h2>

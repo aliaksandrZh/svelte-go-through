@@ -56,6 +56,7 @@ h2.section-example--title {
   overflow-x: auto;
   white-space: pre-line;
   padding: 20px;
+  tab-size: 2;
 }
 
 .section-example pre span.indent {

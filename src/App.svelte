@@ -3,6 +3,7 @@
   import Styles from './components/styles.svelte';
   import HTMLInjection from './components/html-injection.svelte';
   import EventBinding from './components/event-binding.svelte';
+  import Reactivity from './components/reactive.svelte';
 </script>
 
 <header>
@@ -24,6 +25,10 @@
 
   <section>
     <EventBinding/>
+  </section>
+
+  <section>
+    <Reactivity/>
   </section>
 </main>
 

@@ -1,5 +1,5 @@
 <script>
-  import { convertStrToPlainText } from '../lib/string-to-template/string-to-template.helper.js';
+  import { EXAMPLE_SNIPPET } from "../constants/examples.js";
 
   let count = 0;
 
@@ -16,30 +16,7 @@
     count += 1;
   }
 
-  const exampleStr = `
-  <script>
-    let count = 0;
-
-    $: if (count >= 10) {
-      alert('count is dangerously high!');
-      count = 9;
-    }
-
-    $: {
-      console.log('the count is ' + count);
-    }
-
-    function increaseCounter() {
-      count += 1;
-    }
-  </\script>
-
-  <button on:click={increaseCounter}>
-    Clicked { count } { count === 1 ? 'time' : 'times' }
-  </button>`;
-
-
-  const exampleSnippet = convertStrToPlainText(exampleStr);
+  const exampleSnippet = EXAMPLE_SNIPPET.REACTIVITY;
 </script>
 
 <h2 class="section-example--title">Reactivity</h2>

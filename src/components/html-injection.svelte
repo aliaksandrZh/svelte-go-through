@@ -1,17 +1,9 @@
 <script>
-  import { convertStrToPlainText } from '../lib/string-to-template/string-to-template.helper.js';
+  import { EXAMPLE_SNIPPET } from "../constants/examples.js";
 
   let string = `this string contains some <strong>HTML!!!</strong>`;
 
-  const exampleStr = `
-    <script>
-      let string = \`this string contains some <strong>HTML!!!</strong>\`;
-    <\/script>
-
-    <p>{ string }</p>
-    <p>{ @html string }</p>`;
-
-  const exampleSnippet = convertStrToPlainText(exampleStr);
+  const exampleSnippet = EXAMPLE_SNIPPET.HTML_INJECTION;
 </script>
 
 <h2 class="section-example--title">HTML Injection</h2>

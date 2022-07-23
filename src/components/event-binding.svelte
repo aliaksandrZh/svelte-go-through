@@ -1,5 +1,5 @@
 <script>
-  import { convertStrToPlainText } from '../lib/string-to-template/string-to-template.helper.js';
+  import { EXAMPLE_SNIPPET } from "../constants/examples.js";
 
   let count = 0;
 
@@ -7,20 +7,7 @@
     count += 1;
   }
 
-  const exampleStr =`
-  <script>
-    let count = 0;
-
-    function increaseCounter() {
-      count += 1;
-    }
-  </\script>
-
-  <button on:click={increaseCounter}>
-    Clicked { count } { count === 1 ? 'time' : 'times' }
-  </button>`;
-
-  const exampleSnippet = convertStrToPlainText(exampleStr);
+  const exampleSnippet = EXAMPLE_SNIPPET.EVENT_BINDING;
 </script>
 
 <h2 class="section-example--title">Event Binding</h2>
